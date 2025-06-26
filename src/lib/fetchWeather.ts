@@ -17,3 +17,19 @@ export async function getWeatherByCity(city: string) {
   if (!res.ok) throw new Error('Ville introuvable')
   return res.json()
 }
+
+export async function getForecastByCoords(lat: number, lon: number) {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=fr`
+  )
+  if (!res.ok) throw new Error('Erreur lors du chargement des prévisions')
+  return res.json()
+}
+
+export async function getForecastByCity(city: string) {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=fr`
+  )
+  if (!res.ok) throw new Error('Erreur lors du chargement des prévisions')
+  return res.json()
+}

@@ -1,10 +1,14 @@
+'use client'
+
 import { useState } from 'react'
-import { getWeatherByCity } from '@/lib/fetchWeather'
+import { getWeatherByCity, getForecastByCity } from '@/lib/fetchWeather'
 import WeatherCard from './WeatherCard'
+import ForecastList from './ForecastList'
 
 export default function CitySearch() {
   const [city, setCity] = useState('')
   const [weather, setWeather] = useState(null)
+  const [forecast, setForecast] = useState(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -14,9 +18,14 @@ export default function CitySearch() {
 
     setLoading(true)
     setError(null)
+    setWeather(null)
+    setForecast(null)
+
     try {
-      const data = await getWeatherByCity(city)
-      setWeather(data)
+      const weatherData = await getWeatherByCity(city)
+      const forecastData = await getForecastByCity(city)
+      setWeather(weatherData)
+      setForecast(forecastData)
     } catch (err) {
       setError('Ville introuvable ou erreur serveur')
     } finally {
@@ -49,6 +58,12 @@ export default function CitySearch() {
       {weather && (
         <div className="mt-6">
           <WeatherCard data={weather} />
+        </div>
+      )}
+      {forecast && (
+        <div className="mt-6">
+          <h3 className="text-lg font-semibold mb-2">📅 Prévisions à 5 jours</h3>
+          <ForecastList data={forecast} />
         </div>
       )}
     </section>
