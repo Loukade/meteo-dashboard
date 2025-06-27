@@ -9,7 +9,6 @@ A modern weather dashboard built with Next.js that shows real-time weather and 5
 - Automatic geolocation-based weather display  
 - Search weather by city name with live search  
 - Detailed 3-hour interval forecast in a modal popup  
-- Responsive and clean UI with light/dark mode support  
 - Real-time weather icons and descriptions  
 - Forecast list with date/time and temperature details  
 - Smooth transitions and interactive components  
@@ -82,7 +81,6 @@ A modern weather dashboard built with Next.js that shows real-time weather and 5
 - On load, the app requests geolocation permission and fetches current weather + 5-day forecast for your location.  
 - You can search for any city with the search bar and get the same detailed weather + forecast data.  
 - Click on any weather card to open a modal with 3-hour interval detailed forecasts.  
-- Supports light and dark modes (toggle available).
 
 ---
 
