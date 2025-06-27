@@ -22,7 +22,7 @@ export default function Home() {
           const forecastData = await getForecastByCoords(latitude, longitude)
           setWeather(data)
           setForecast(forecastData)
-        } catch (err) {
+        } catch {
           setError('Erreur lors du chargement de la météo')
         } finally {
           setLoading(false)

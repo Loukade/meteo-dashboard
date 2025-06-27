@@ -4,21 +4,22 @@ import { useState } from 'react'
 import { format } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import ForecastModal from './ForecastModal'
+import { ForecastItem } from '@/types/forecast'
 
-export default function ForecastList({ data }: { data: any }) {
+export default function ForecastList({ data }: { data: { list: ForecastItem[] } }) {
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
-  const [selectedItems, setSelectedItems] = useState<any[] | null>(null)
+  const [selectedItems, setSelectedItems] = useState<ForecastItem[] | null>(null)
 
   // Regrouper les données par jour
-  const groupedByDate: { [key: string]: any[] } = {}
+  const groupedByDate: { [key: string]: ForecastItem[] } = {}
 
-  data.list.forEach((item: any) => {
+  data.list.forEach((item: ForecastItem) => {
     const date = item.dt_txt.split(' ')[0]
     if (!groupedByDate[date]) groupedByDate[date] = []
     groupedByDate[date].push(item)
   })
 
-  const handleOpenModal = (date: string, items: any[]) => {
+  const handleOpenModal = (date: string, items: ForecastItem[]) => {
     setSelectedDate(date)
     setSelectedItems(items)
   }
@@ -33,7 +34,7 @@ export default function ForecastList({ data }: { data: any }) {
       {Object.entries(groupedByDate)
   .filter(([date]) => date !== new Date().toISOString().split('T')[0]) // filtre aujourd'hui
   .map(([date, items]) => {
-    const maxTemp = Math.max(...items.map(i => i.main.temp_max));
+    const maxTemp = Math.max(...items.map(i => i.main.temp_max).filter((t): t is number => t !== undefined));
     const maxTempItem = items.find(i => i.main.temp_max === maxTemp) || items[0];
     return (
       <button
@@ -65,7 +66,6 @@ export default function ForecastList({ data }: { data: any }) {
 
       {selectedDate && selectedItems && (
         <ForecastModal
-          date={selectedDate}
           items={selectedItems}
           onClose={handleCloseModal}
         />

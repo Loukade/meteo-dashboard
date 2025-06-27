@@ -1,10 +1,11 @@
 'use client'
 
 import { format } from 'date-fns'
-import fr from 'date-fns/locale/fr'
+import {fr} from 'date-fns/locale/fr'
+import { ForecastItem } from '@/types/forecast'
 
 type ForecastModalProps = {
-  items: any[]
+  items: ForecastItem[]
   onClose: () => void
 }
 

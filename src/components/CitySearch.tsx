@@ -27,7 +27,7 @@ export default function CitySearch() {
       const forecastData = await getForecastByCity(city)
       setWeather(weatherData)
       setForecast(forecastData)
-    } catch (err) {
+    } catch {
       setError('Ville introuvable ou erreur serveur')
     } finally {
       setLoading(false)

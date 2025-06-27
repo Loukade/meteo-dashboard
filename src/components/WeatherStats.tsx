@@ -1,24 +1,7 @@
 'use client'
 
 import React from 'react'
-
-type ForecastItem = {
-  dt: number
-  dt_txt: string
-  main: {
-    temp: number
-    temp_min?: number
-    temp_max?: number
-    humidity: number
-  }
-  wind: {
-    speed: number
-  }
-  weather: {
-    description: string
-    icon: string
-  }[]
-}
+import { ForecastItem } from '@/types/forecast'
 
 type WeatherStatsProps = {
   data: {
@@ -115,7 +98,7 @@ export default function WeatherStats({ data }: WeatherStatsProps) {
             💧 Journée la plus humide
           </h3>
           <p>
-            {formatDateJour(jourLePlusHumide.day)} avec un taux d'humidité maximal de{' '}
+            {formatDateJour(jourLePlusHumide.day)} avec un taux d&apos;humidité maximal de{' '}
             <strong>{jourLePlusHumide.humidMax}%</strong>
           </p>
         </div>
@@ -135,7 +118,7 @@ export default function WeatherStats({ data }: WeatherStatsProps) {
             🌿 Journée la moins humide
           </h3>
           <p>
-            {formatDateJour(jourLeMoinsHumide.day)} avec un taux d'humidité minimal de{' '}
+            {formatDateJour(jourLeMoinsHumide.day)} avec un taux d&apos;humidité minimal de{' '}
             <strong>{jourLeMoinsHumide.humidMin}%</strong>
           </p>
         </div>
