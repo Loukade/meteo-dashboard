@@ -23,7 +23,6 @@ export default function Home() {
           setWeather(data)
           setForecast(forecastData)
         } catch (err) {
-          console.log(err)
           setError('Erreur lors du chargement de la météo')
         } finally {
           setLoading(false)
