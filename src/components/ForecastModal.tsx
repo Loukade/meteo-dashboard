@@ -26,7 +26,7 @@ export default function ForecastModal({ items, onClose }: ForecastModalProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {items.map((forecast) => {
-            const date = new Date(forecast.dt * 1000)
+            const date = new Date((forecast.dt + new Date().getTimezoneOffset() * 60) * 1000)
             return (
               <div
                 key={forecast.dt}
@@ -41,7 +41,7 @@ export default function ForecastModal({ items, onClose }: ForecastModalProps) {
                 <p className="capitalize">{forecast.weather[0].description}</p>
                 <p className="mt-2 font-bold text-xl">{Math.round(forecast.main.temp)}°C</p>
                 <p>Humidité: {forecast.main.humidity}%</p>
-                <p>Vent: {Math.round(forecast.wind.speed)} km/h</p>
+                <p>Vent: {Math.round(forecast.wind.speed*3.6)} km/h</p>
               </div>
             )
           })}

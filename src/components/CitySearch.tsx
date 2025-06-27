@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { getWeatherByCity, getForecastByCity } from '@/lib/fetchWeather'
 import WeatherCard from './WeatherCard'
 import ForecastList from './ForecastList'
+import WeatherStats from './WeatherStats'
 
 export default function CitySearch() {
   const [city, setCity] = useState('')
@@ -56,7 +57,7 @@ export default function CitySearch() {
       {loading && <p className="mt-4">Recherche en cours...</p>}
       {error && <p className="mt-4 text-red-500">{error}</p>}
       {weather && (
-        <div className="mt-6">
+        <div className="mt-6 w-full flex justify-center">
           <WeatherCard data={weather} />
         </div>
       )}
@@ -66,6 +67,8 @@ export default function CitySearch() {
           <ForecastList data={forecast} />
         </div>
       )}
+
+      {forecast && <div className="mt-6 w-full flex justify-center"><WeatherStats data={forecast} /></div>}
     </section>
   )
 }

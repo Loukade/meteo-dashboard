@@ -42,7 +42,7 @@ export default function ForecastList({ data }: { data: any }) {
         className="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 p-6 text-left"
       >
         <p className="text-xl font-bold text-blue-800 dark:text-blue-100">
-          {format(new Date(date), "EEEE d MMM", { locale: fr })}
+        {format(new Date(date + "T00:00:00Z"), "EEEE d MMM", { locale: fr })}
         </p>
         <div className="flex items-center justify-between mt-4">
           <img
