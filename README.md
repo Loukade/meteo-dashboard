@@ -11,7 +11,12 @@ A modern weather dashboard built with Next.js that shows real-time weather and 5
 - Detailed 3-hour interval forecast in a modal popup  
 - Real-time weather icons and descriptions  
 - Forecast list with date/time and temperature details  
+- **Interactive weather charts** (temperature, humidity, wind) with beautiful tooltips and day labels  
 - Smooth transitions and interactive components  
+- Responsive, mobile-friendly design  
+- Elegant loading spinner and error handling (non-blocking alert for geolocation errors)  
+- Custom footer and improved navigation  
+- Consistent date formatting and tooltips across all views  
 
 ---
 
@@ -21,6 +26,7 @@ A modern weather dashboard built with Next.js that shows real-time weather and 5
 - React hooks (`useState`, `useEffect`)  
 - Tailwind CSS for styling  
 - OpenWeatherMap API for weather and forecast data  
+- Recharts for interactive charts  
 
 ---
 
@@ -70,7 +76,7 @@ A modern weather dashboard built with Next.js that shows real-time weather and 5
 
 ```
 /app               # Next.js app directory
-/components        # React components (WeatherCard, CitySearch, ForecastModal, etc.)
+/components        # React components (WeatherCard, CitySearch, ForecastModal, WeatherStats, Footer, etc.)
 /lib               # API fetch helpers (fetchWeather.ts)
 ```
 
@@ -81,12 +87,23 @@ A modern weather dashboard built with Next.js that shows real-time weather and 5
 - On load, the app requests geolocation permission and fetches current weather + 5-day forecast for your location.  
 - You can search for any city with the search bar and get the same detailed weather + forecast data.  
 - Click on any weather card to open a modal with 3-hour interval detailed forecasts.  
+- Click the "Voir les graphiques météo de la semaine" button to access interactive charts for temperature, humidity, and wind, with day labels and tooltips.  
+- If geolocation fails, a non-blocking alert is shown but the rest of the dashboard remains usable.  
+
+---
+
+## User Experience & Accessibility
+
+- Fully responsive and mobile-friendly layout  
+- Accessible color contrasts and focus states  
+- Keyboard navigation supported  
+- Loading and error states are visually clear and non-intrusive  
+- Footer with author credit and modern design  
 
 ---
 
 ## Future Improvements
 
-- Add graphical charts for temperature, wind, and precipitation using chart libraries like `recharts` or `chart.js`.  
 - Store favorite cities locally for quick access.  
 - Push notifications for weather alerts (rain, storms, etc.).  
 - Multi-language support (i18n).  
