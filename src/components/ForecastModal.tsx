@@ -25,7 +25,7 @@ export default function ForecastModal({ items, onClose }: ForecastModalProps) {
           Prévisions détaillées
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {items.map((forecast) => {
             const date = new Date((forecast.dt + new Date().getTimezoneOffset() * 60) * 1000)
             return (
