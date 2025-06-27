@@ -66,7 +66,20 @@ export default function Graphs() {
       <p className="text-xl text-blue-900 dark:text-blue-100 font-semibold">Chargement des graphiques météo...</p>
     </div>
   );
-  if (error) return <p className="text-red-500">{error}</p>
+  if (error) return (
+    <div className="flex flex-col items-center justify-center min-h-screen w-full">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 flex flex-col items-center">
+        <span className="text-5xl mb-4 text-red-500">⚠️</span>
+        <p className="text-2xl font-bold text-red-600 mb-4 text-center">{error}</p>
+        <Link
+          href="/"
+          className="mt-2 px-6 py-2 rounded-xl bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition"
+        >
+          Retour à l&apos;accueil
+        </Link>
+      </div>
+    </div>
+  );
 
   // Génère dayTicks : date exacte du premier point de chaque jour (clé yyyy-mm-dd)
   const dayTicks: string[] = [];
