@@ -41,7 +41,13 @@ export default function Home() {
       <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-900 dark:text-blue-100 drop-shadow-lg">
         🌤️ Dashboard météo géolocalisée
       </h1>
-
+      <a
+        href="/graphs"
+        className="inline-block mt-6 px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-700 hover:scale-105 transition text-center focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+        aria-label="Voir les graphiques météo de la semaine"
+      >
+        📈 Voir les graphiques météo de la semaine
+      </a>
       {loading && <p className="mb-4 text-lg text-blue-800 dark:text-blue-200">Chargement météo...</p>}
       {error && <p className="mb-4 text-red-500 text-lg">{error}</p>}
 

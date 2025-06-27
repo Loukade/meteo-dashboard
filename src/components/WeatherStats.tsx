@@ -9,7 +9,7 @@ type WeatherStatsProps = {
   }
 }
 
-function formatDateJour(dateStr: string) {
+export function formatDateJour(dateStr: string) {
   const date = new Date(dateStr)
   return date.toLocaleDateString('fr-FR', {
     weekday: 'long',
@@ -18,7 +18,7 @@ function formatDateJour(dateStr: string) {
   })
 }
 
-function formatDateHeure(dateStr: string) {
+export function formatDateHeure(dateStr: string) {
   const date = new Date(dateStr)
   return date.toLocaleTimeString('fr-FR', {
     hour: '2-digit',
