@@ -6,6 +6,7 @@ import ForecastList from '@/components/ForecastList'
 import CitySearch from '@/components/CitySearch'
 import { getWeatherByCoords, getForecastByCoords } from '@/lib/fetchWeather'
 import WeatherStats from '@/components/WeatherStats'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   const [weather, setWeather] = useState(null)
@@ -56,6 +57,7 @@ export default function Home() {
       {forecast && <WeatherStats data={forecast} />}
 
       <CitySearch />
+      <Footer />
     </main>
   )
 }
