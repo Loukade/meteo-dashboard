@@ -77,7 +77,7 @@ export default function WeatherStats({ data }: WeatherStatsProps) {
   )
 
   return (
-    <section className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 space-y-8">
+    <section className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-4 sm:p-8 space-y-8">
       <h2 className="text-3xl font-bold text-center mb-6 text-blue-900 dark:text-blue-100">
         📊 Résumé des statistiques météo (5 jours)
       </h2>

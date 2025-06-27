@@ -35,10 +35,10 @@ export default function CitySearch() {
   }
 
   return (
-    <section className="w-full bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 mt-8">
+    <section className="w-full bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-4 sm:p-6 mt-8">
       <h2 className="text-2xl font-semibold mb-4">🔍 Rechercher une ville</h2>
 
-      <form onSubmit={handleSearch} className="flex gap-4">
+      <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4">
         <input
           type="text"
           placeholder="Ex: Paris"

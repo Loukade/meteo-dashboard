@@ -12,7 +12,7 @@ export default function WeatherCard({ data }: WeatherCardProps) {
   const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
 
   return (
-    <section className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-10 flex flex-col md:flex-row items-center md:justify-between gap-10 transition-colors hover:shadow-blue-500/40">
+    <section className="max-w-4xl w-full bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-4 md:p-10 flex flex-col md:flex-row items-center md:justify-between gap-6 md:gap-10 transition-colors hover:shadow-blue-500/40">
       <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-3 flex-grow">
         <h2 className="text-4xl font-extrabold tracking-tight">{data.name}</h2>
         <p className="capitalize text-xl text-gray-600 dark:text-gray-300">{data.weather[0].description}</p>

@@ -36,7 +36,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen w-full flex flex-col items-center p-8 gap-12 bg-gradient-to-br from-blue-200 via-sky-100 to-blue-400 dark:from-blue-900 dark:via-sky-900 dark:to-blue-800 transition-colors">
+    <main className="min-h-screen w-full flex flex-col items-center p-4 sm:p-8 gap-12 bg-gradient-to-br from-blue-200 via-sky-100 to-blue-400 dark:from-blue-900 dark:via-sky-900 dark:to-blue-800 transition-colors">
       <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-900 dark:text-blue-100 drop-shadow-lg">
         🌤️ Dashboard météo géolocalisée
       </h1>
