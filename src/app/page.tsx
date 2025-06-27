@@ -36,8 +36,21 @@ export default function Home() {
     )
   }, [])
 
+  if (loading) return (
+    <div className="flex flex-col items-center justify-center min-h-screen w-full">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mb-6"></div>
+      <p className="text-xl text-blue-900 dark:text-blue-100 font-semibold">Chargement météo...</p>
+    </div>
+  );
+
   return (
     <main className="min-h-screen w-full flex flex-col items-center p-4 sm:p-8 gap-12 bg-gradient-to-br from-blue-200 via-sky-100 to-blue-400 dark:from-blue-900 dark:via-sky-900 dark:to-blue-800 transition-colors">
+      {error && (
+        <div className="w-full max-w-xl mx-auto flex items-center gap-3 bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 text-red-700 dark:text-red-200 rounded-xl px-4 py-3 mb-4 shadow">
+          <span className="text-2xl">⚠️</span>
+          <span className="font-semibold">{error}</span>
+        </div>
+      )}
       <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-900 dark:text-blue-100 drop-shadow-lg">
         🌤️ Dashboard météo géolocalisée
       </h1>
@@ -48,8 +61,6 @@ export default function Home() {
       >
         📈 Voir les graphiques météo de la semaine
       </a>
-      {loading && <p className="mb-4 text-lg text-blue-800 dark:text-blue-200">Chargement météo...</p>}
-      {error && <p className="mb-4 text-red-500 text-lg">{error}</p>}
 
       {weather && <WeatherCard data={weather} />}
 
